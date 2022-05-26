@@ -1,5 +1,6 @@
-Flask 
+Flask @ file:///home/ktietz/src/ci/flask_1611932660458/work
+Flask-Cors==3.0.10
 pandas==1.3.4
 pickleshare 
 scikit-learn
-gunicorn==19.0.0
+gunicorn==20.1.0
