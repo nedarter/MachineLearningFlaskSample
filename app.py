@@ -30,7 +30,7 @@ def index():
         model = pickle.load( open( "model.p", "rb" ) )
 
         #Run the model
-        p = str(model.predict(guess)[0])
+        p = model.predict(guess)[0]
 
     #If the method is not post, we just set all of our values to 0
     else: 
@@ -47,15 +47,15 @@ def index():
     #We pass all of the values (default to 0's or the user input) back to the page. This way
     #the values are entered back into the page when the user hits submit
     return render_template("index.html",
-                            P = p, 
-                            Pregnancies = Pregnancies,
-                            Glucose = Glucose,
-                            BloodPressure = BloodPressure,
-                            SkinThickness=SkinThickness,
-                            Insulin=Insulin,
-                            BMI=BMI,
-                            DiabetesPedigreeFunction=DiabetesPedigreeFunction,
-                            Age=Age)
+                            P = str(p), 
+                            Pregnancies = str(Pregnancies),
+                            Glucose = str(Glucose),
+                            BloodPressure = str(BloodPressure),
+                            SkinThickness=str(SkinThickness),
+                            Insulin=str(Insulin),
+                            BMI=str(BMI),
+                            DiabetesPedigreeFunction=str(DiabetesPedigreeFunction),
+                            Age=str(Age))
 
 
 if __name__ == "__main__":
