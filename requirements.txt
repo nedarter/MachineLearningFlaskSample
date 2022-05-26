@@ -1,4 +1,4 @@
-Flask @ file:///home/ktietz/src/ci/flask_1611932660458/work
+Flask
 Flask-Cors==3.0.10
 pandas==1.3.4
 pickleshare 
