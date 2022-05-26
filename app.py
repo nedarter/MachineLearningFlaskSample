@@ -14,14 +14,17 @@ def index():
     if request.method == "POST":
         #The numbers within form (Pregnancies, Glucose, etc... ) match to the "name" property
         #in the input elements of our form
-        Pregnancies = int(request.form["Pregnancies"])
-        Glucose = int(request.form["Glucose"])
-        BloodPressure = int(request.form["BloodPressure"])
-        SkinThickness=int(request.form["SkinThickness"])
-        Insulin=int(request.form["Insulin"])
-        BMI=int(request.form["BMI"])
-        DiabetesPedigreeFunction=int(request.form["DiabetesPedigreeFunction"])
-        Age=int(request.form["Age"])
+
+        #Note: I had to wrap each of the request.form portions in the float function because they are supposed to be numbers and 
+        # if don't do that, python still views them as strings. This breaks the machine learning / prediction portion
+        Pregnancies = float(request.form["Pregnancies"])
+        Glucose = float(request.form["Glucose"])
+        BloodPressure = float(request.form["BloodPressure"])
+        SkinThickness=float(request.form["SkinThickness"])
+        Insulin=float(request.form["Insulin"])
+        BMI=float(request.form["BMI"])
+        DiabetesPedigreeFunction=float(request.form["DiabetesPedigreeFunction"])
+        Age=float(request.form["Age"])
 
         #Setting up all of the user input variables to pass into the model
         guess = [[Pregnancies,Glucose,BloodPressure,SkinThickness,Insulin,BMI,DiabetesPedigreeFunction,Age]]
@@ -46,16 +49,17 @@ def index():
     
     #We pass all of the values (default to 0's or the user input) back to the page. This way
     #the values are entered back into the page when the user hits submit
+
     return render_template("index.html",
-                            P = str(p), 
-                            Pregnancies = str(Pregnancies),
-                            Glucose = str(Glucose),
-                            BloodPressure = str(BloodPressure),
-                            SkinThickness=str(SkinThickness),
-                            Insulin=str(Insulin),
-                            BMI=str(BMI),
-                            DiabetesPedigreeFunction=str(DiabetesPedigreeFunction),
-                            Age=str(Age))
+                            P = p, 
+                            Pregnancies = Pregnancies,
+                            Glucose = Glucose,
+                            BloodPressure = BloodPressure,
+                            SkinThickness=SkinThickness,
+                            Insulin=Insulin,
+                            BMI=BMI,
+                            DiabetesPedigreeFunction=DiabetesPedigreeFunction,
+                            Age=Age)
 
 
 if __name__ == "__main__":
