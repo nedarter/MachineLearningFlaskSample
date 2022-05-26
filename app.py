@@ -30,7 +30,7 @@ def index():
         model = pickle.load( open( "model.p", "rb" ) )
 
         #Run the model
-        p = model.predict(guess)
+        p = str(model.predict(guess)[0])
 
     #If the method is not post, we just set all of our values to 0
     else: 
@@ -60,6 +60,4 @@ def index():
 
 if __name__ == "__main__":
 
-
-    
     app.run(debug=True)
