@@ -14,14 +14,14 @@ def index():
     if request.method == "POST":
         #The numbers within form (Pregnancies, Glucose, etc... ) match to the "name" property
         #in the input elements of our form
-        Pregnancies = request.form["Pregnancies"]
-        Glucose = request.form["Glucose"]
-        BloodPressure = request.form["BloodPressure"]
-        SkinThickness=request.form["SkinThickness"]
-        Insulin=request.form["Insulin"]
-        BMI=request.form["BMI"]
-        DiabetesPedigreeFunction=request.form["DiabetesPedigreeFunction"]
-        Age=request.form["Age"]
+        Pregnancies = int(request.form["Pregnancies"])
+        Glucose = int(request.form["Glucose"])
+        BloodPressure = int(request.form["BloodPressure"])
+        SkinThickness=int(request.form["SkinThickness"])
+        Insulin=int(request.form["Insulin"])
+        BMI=int(request.form["BMI"])
+        DiabetesPedigreeFunction=int(request.form["DiabetesPedigreeFunction"])
+        Age=int(request.form["Age"])
 
         #Setting up all of the user input variables to pass into the model
         guess = [[Pregnancies,Glucose,BloodPressure,SkinThickness,Insulin,BMI,DiabetesPedigreeFunction,Age]]
